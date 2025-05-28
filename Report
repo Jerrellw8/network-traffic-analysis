@@ -1,0 +1,40 @@
+Network Traffic Analysis Report
+Incident Title:
+ Unusual Volume of TCP ACK Traffic from Internal Host
+Report Date:
+ 2025-05-28
+
+Summary:
+A detailed network traffic analysis was conducted on packet captures obtained from the internal host 192.168.1.135. The analysis revealed a sustained and significant stream of TCP acknowledgment (ACK) packets directed toward an external server identified by IP address 162.159.130.234. This behavior followed a successful TCP three-way handshake and was accompanied by encrypted TLS traffic, consistent with a secure data transfer session.
+
+Details of the Activity:
+Internal Source IP: 192.168.1.135
+Destination IP: 162.159.130.234
+Destination Port: 443 (HTTPS)
+Source Port: 11750 (ephemeral)
+Protocol: TCP over TLSv1.2
+Timestamp Range (Observed): ~142.88s to 173.10s
+
+Packet Characteristics:
+High frequency of TCP ACK packets (no payload, Len=0)
+Sequence number remained constant (Seq=1674)
+Acknowledgment number incremented over time (indicating received data)
+One observed TLSv1.2 Application Data packet
+
+Technical Findings:
+The TCP session initiated with a standard three-way handshake (SYN → SYN-ACK → ACK).
+TLSv1.2 encrypted communication began shortly afterward.
+Following the initial application data exchange, the client (192.168.1.135) continuously sent ACK packets, acknowledging data received from the external server.
+No signs of TCP retransmissions, resets (RST), or errors were detected.
+All ACKs carried a zero-length payload, suggesting no client-initiated data transfers during the captured period.
+
+Interpretation:
+The packet stream is indicative of a successful, encrypted data download from a secure web service (likely content delivery network or cloud host) to the internal host. The high number of ACKs reflects the normal TCP acknowledgment process during bulk data transfer (e.g., downloading a file, webpage content, or update). No abnormal or malicious behavior was observed during the capture period.
+
+Conclusion:
+This report confirms a successful TCP/TLS connection initiated by the internal host 192.168.1.135 to an external web server. The observed traffic behavior aligns with normal encrypted download activity over HTTPS and does not currently indicate any anomalous or malicious network behavior.
+
+Recommendations:
+Log Retention: Preserve this capture for future reference or audit trails.
+Destination Verification: Optionally, reverse-lookup the destination IP to confirm the legitimacy of the contacted server.
+Continued Monitoring: Continue monitoring for repeated or prolonged similar sessions to ensure this is not part of automated, unauthorized software behavior.
