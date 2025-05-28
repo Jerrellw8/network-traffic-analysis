@@ -11,7 +11,7 @@ This project demonstrates the analysis of a TCP/TLS session using Wireshark, spe
 
 ## Files
 - `Network_Traffic_Analysis_Report.docx`: Full incident report.
-- `wireshark_log.pcapng`: Screenshot of the TCP ACK stream.
+- `wireshark_log.png`: Screenshot of the TCP ACK stream.
 - (Optional) `capture.pcap`: Raw packet data (if anonymized).
 
 ## Tools Used
@@ -19,5 +19,5 @@ This project demonstrates the analysis of a TCP/TLS session using Wireshark, spe
 - Microsoft Word
 
 ## Author
-Your Name – [LinkedIn] – [Email] – [Portfolio]
+Jerrell Whitaker – https://www.linkedin.com/in/jerrell-whitaker-a20241139/ – jerrellwhitaker67@gmail.com – [Portfolio]
 
